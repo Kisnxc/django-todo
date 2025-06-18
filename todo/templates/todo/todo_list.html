@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-List</title>
+</head>
+<body>
+    <h1 style="color: red;">TEST HIỂN THỊ TEMPLATE</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+
+    <h3>DANH SÁCH TODOS</h3>
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo.title }} - {{ todo.created_at }}</li>
+        {% empty %}
+            <li>Nothing here</li>
+        {% endfor %}
+    </ul>
+    <hr>
+</body>
+</html>
